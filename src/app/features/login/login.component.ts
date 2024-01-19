@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceAdapter } from 'src/app/adapters/login-service.adapter';
 
 @Component({
   selector: 'app-login',

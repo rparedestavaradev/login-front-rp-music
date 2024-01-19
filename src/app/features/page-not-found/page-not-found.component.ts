@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { LoginServiceAdapter } from 'src/app/adapters/login-service.adapter';
 
 @Component({
   selector: 'app-page-not-found',
@@ -9,12 +10,13 @@ import { Title } from '@angular/platform-browser';
 export class PageNotFoundComponent implements OnInit {
 
   title: string = 'Page Not Found';
-  constructor(private titleService: Title) { 
-    titleService.setTitle(this.title)
+  
+  constructor(titleService: Title, private loginService: LoginServiceAdapter) { 
+    titleService.setTitle(this.title);
   }
 
   ngOnInit(): void {
-    
+    this.loginService.login().subscribe(res => console.log(res));
   }
 
 }
