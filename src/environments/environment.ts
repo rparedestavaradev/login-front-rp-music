@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  descriptionEnvironment: 'Test'
+  descriptionEnvironment: 'Test',
+  apiURL: 'http://localhost:8001/'
 };
 
 /*
