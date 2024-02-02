@@ -8,6 +8,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path:"",
+    component: LoginComponent
+  },
+  {
     path: "**",
     loadChildren: () => import('./features/page-not-found/page-not-found.module').then((m) => m.PageNotFoundModule)
   }
