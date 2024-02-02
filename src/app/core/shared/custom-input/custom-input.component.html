@@ -1,7 +1,19 @@
 <section>
-    <label>{{label_desciption}}:</label>
-    <div>
-        <input [value]="value" [type]="type" [placeholder]="placeholder"/>
-        <i [class]="class_icon"></i>
+    <label id="inputLabel">{{ label_description }}:</label>
+    <div class="content-input">
+        <input
+            class="custom-input"
+            [value]="value"
+            [type]="inputType"
+            [placeholder]="placeholder"
+            autocomplete="current-password"
+            aria-labelledby="inputLabel"
+        />
+        <div (click)="toggleInputType()" *ngIf="!show" [ngClass]="{ 'password': isPassword }">
+            <i [class]="class_icon"></i>
+        </div>
+        <div *ngIf="show" (click)="toggleInputType()" [ngClass]="{ 'password': isPassword }">
+            <i *ngIf="isPassword" [class]="class_icon_visibility"></i>
+        </div>
     </div>
 </section>

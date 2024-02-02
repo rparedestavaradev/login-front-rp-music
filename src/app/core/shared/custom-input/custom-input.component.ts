@@ -7,15 +7,28 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CustomInputComponent implements OnInit {
 
-  @Input() label_desciption: string | undefined;
+  @Input() label_description: string | undefined;
   @Input() placeholder: string | undefined;
   @Input() value: string | undefined;
-  @Input() type: string | undefined;
-  @Input() class_icon: string | undefined;
+  @Input() inputType: string = 'input';
+  @Input() isPassword: boolean = false;
+  @Input() class_icon: string = '';
+  @Input() class_icon_visibility: string = '';
+  
+  INPUT: string = 'input';
+  PASSWORD: string = 'password';
+  currentType: string = this.INPUT;
+  show: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleInputType() {
+    if(!this.isPassword) return
+    this.show = !this.show;
+    this.inputType = (this.inputType === this.INPUT)?this.PASSWORD:this.INPUT;
   }
 
 }

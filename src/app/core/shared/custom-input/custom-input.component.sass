@@ -6,7 +6,7 @@ section
     min-height: 70px
     label
         font-weight: 600
-    div
+    .content-input
         height: 0px
         border-radius: 5px
         padding: 5px
@@ -14,10 +14,14 @@ section
         display: flex
         background: white
         align-items: center
-        input
+        .custom-input
             border: none
             flex: 1
             font-size: 15px
+        .custom-input:focus
+            outline: none
         svg
             color: #363636
             font-size: 22px
+.password
+    cursor: pointer

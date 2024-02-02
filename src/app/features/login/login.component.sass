@@ -1,10 +1,16 @@
+$principal-background: #363636
+$font-principal-color: white
 main
     display: flex
     height: 100vh
     justify-content: space-between
-
+    
+.dimension-800
+    display: none
+.detail-app-800
+    display: none
 .logo-side
-    background: #363636
+    background: $principal-background
     width: 30%
     justify-content: space-between
     display: flex
@@ -21,11 +27,10 @@ img
     display: flex
     align-items: center
     form
-        color: white
-        background: #363636
+        color: $font-principal-color
+        background: $principal-background
         display: flex
         flex-direction: column
-        height: 45%
         justify-content: space-around
         border-radius: 15px
         width: 32%
@@ -35,7 +40,7 @@ img
         .content-inputs
             display: grid
             grid-template-rows: 1fr 1fr
-        h1
+        h3
             text-align: center
             margin: 0
         .recover-password
@@ -49,6 +54,41 @@ img
                 font-size: 14px
 
 .detail-app
-    color: white
+    color: $font-principal-color
     font-weight: 600
     width: 70%
+
+@media only screen and (max-width: 850px)
+    main
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        gap: 20px
+        background: $principal-background
+    .dimension-800
+        height: 30%
+        display: inline
+        margin: 0
+    .logo-side
+        display: none
+    .form-side
+        width: 100%
+        form
+            width: auto
+            min-width: auto
+            height: auto
+            border-color: $font-principal-color
+            border: 1px solid
+            h3
+                display: none
+    .detail-app-800
+        display: flex
+        flex-direction: column
+        color: $font-principal-color
+        font-weight: 600
+        width: 70%
+        font-size: 13px
+        gap: 5px
+        p
+            margin: 0

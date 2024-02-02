@@ -1,29 +1,32 @@
 <main>
-        <div class="logo-side">
-            <img src="../../../assets/logo/logo-rp-music-bg.png" alt="Logo without background">
-            <section class="detail-app">
-                By Rogger Aldair Paredes Tavara
-                <p>Environmet: {{environment}}</p>
-                <p>Version:    {{version}}</p>    
+    <div class="logo-side">
+        <img [src]="src_logo" alt="Logo without background">
+        <section class="detail-app">
+            <app-detail-app></app-detail-app>
+        </section>
+    </div>
+    <img class="dimension-800" [src]="src_logo" alt="Logo without background">
+    <div class="form-side">
+        <form autocomplete="off">
+            <h3>RP music</h3>
+            <section class="content-inputs">
+                <app-custom-input [label_description]="'Email'" [class_icon]="'fa-solid fa-circle-user'"
+                [value]="email" [inputType]="'text'" [placeholder]="'Write your Email'" ></app-custom-input>
+                <div>
+                    <app-custom-input [label_description]="'Password'" [class_icon]="'fa-solid fa-eye-slash'"
+                    [value]="password" [inputType]="'password'" [placeholder]="'Write your Password'"
+                    [class_icon_visibility]="'fa-solid fa-eye'" [isPassword]="true"></app-custom-input>
+                    <p class="recover-password">{{forgot_password}} <strong>{{description_recover_password}}</strong></p>
+                </div>
             </section>
-        </div>
-        <div class="form-side">
-            <form autocomplete="off">
-                <h1>RP music</h1>
-                <section class="content-inputs">
-                    <app-custom-input [label_desciption]="'Email'" [class_icon]="'fa-solid fa-circle-user'"
-                    [value]="email" [type]="'text'" [placeholder]="'Write your Email'" ></app-custom-input>
-                    <div>
-                        <app-custom-input [label_desciption]="'Password'" [class_icon]="'fa-solid fa-eye-slash'"
-                        [value]="password" [type]="'password'" [placeholder]="'Write your Password'" ></app-custom-input>
-                        <p class="recover-password">{{forgot_password}} <strong>{{description_recover_password}}</strong></p>
-                    </div>    
-                </section>
-                <app-custom-button  [type]="'button'" [description]="'Log in'" [primary]="true" ></app-custom-button>
-                <section class="content-register">
-                    <p>{{register_message}}</p>
-                    <p><strong>{{description_to_register}}</strong></p>
-                </section>
-            </form>
-        </div>
+            <app-custom-button  [type]="'button'" [description]="'Log in'" [primary]="true" ></app-custom-button>
+            <section class="content-register">
+                <p>{{register_message}}</p>
+                <p><strong>{{description_to_register}}</strong></p>
+            </section>
+        </form>
+    </div>
+    <section class="detail-app-800">
+        <app-detail-app></app-detail-app>
+    </section>
 </main>
