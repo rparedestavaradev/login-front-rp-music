@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceAdapter } from 'src/app/adapters/login-service.adapter';
+import { TitleServiceAdapter } from 'src/app/adapters/title-service-adapter';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { LoginServiceAdapter } from 'src/app/adapters/login-service.adapter';
 export class LoginComponent implements OnInit {
 
   email: string = "";
+  title: string = "Login RP";
   password: string = "";
   forgot_password: string = 'Forgot password';
   description_recover_password: string = "Recover password";
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   description_to_register: string = "Register User";
   src_logo: string = '/assets/logo/logo-rp-music-bg.png';
 
-  constructor() { }
+  constructor(titleService: TitleServiceAdapter) {
+    titleService.setTitle(this.title);
+  }
 
   ngOnInit(): void {
   }

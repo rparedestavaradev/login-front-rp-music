@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './features/login/login.component';
+import { TitleServiceAdapter } from './adapters/title-service-adapter';
+import { TitleService } from './core/shared/services/title.service';
 
 const routes: Routes = [
   {
     path:"login",
     component: LoginComponent
+  },
+  {
+    path: "register",
+    loadChildren: () => import('./features/register/register-routing.module').then((m) => m.RegisterRoutingModule)
   },
   {
     path:"",
@@ -19,6 +25,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    { provide: TitleServiceAdapter, useClass: TitleService }
+  ]
 })
 export class AppRoutingModule { }
