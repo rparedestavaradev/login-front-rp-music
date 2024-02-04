@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "login-front-rp-music:build:production"
+              "buildTarget": "login-front-rp-music:build:production"
             },
             "development": {
-              "browserTarget": "login-front-rp-music:build:development"
+              "buildTarget": "login-front-rp-music:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "login-front-rp-music:build"
+            "buildTarget": "login-front-rp-music:build"
           }
         },
         "test": {
