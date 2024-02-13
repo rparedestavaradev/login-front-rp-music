@@ -18,7 +18,7 @@
                     [form]="login_form" [inputType]="'password'" [placeholder]="'Write your Password'"
                     [class_icon_visibility]="'fa-solid fa-eye'" [isPassword]="true"
                     [formControlName]="'password'"></app-custom-input>
-                    <p class="recover-password">{{forgot_password}} <strong>{{description_recover_password}}</strong></p>
+                    <p class="recover-password">{{forgot_password}} <strong (click)="recoverPassword()">{{description_recover_password}}</strong></p>
                 </div>
             </section>
             <app-custom-button  [type]="'button'" [description]="'Log in'" [primary]="true"

@@ -4,6 +4,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './features/login/login.component';
 import { SharedModule } from './core/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RecoverPasswordModule } from './features/recover-password/recover-password.module';
 
 @NgModule({
   declarations: [
@@ -12,10 +17,15 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   imports: [
     SharedModule,
+    RecoverPasswordModule,
+    MatDialogModule,
     AppRoutingModule,
-    BrowserModule
+    MatFormFieldModule, MatInputModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

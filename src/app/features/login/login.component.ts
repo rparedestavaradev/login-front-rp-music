@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleServiceAdapter } from 'src/app/adapters/title-service-adapter';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
 
+import { RecoverPasswordComponent } from '../recover-password/recover-password.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
 
@@ -21,7 +25,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(titleService: TitleServiceAdapter) {
+  constructor(titleService: TitleServiceAdapter, private dialog: MatDialog) {
     titleService.setTitle(this.title);
   }
 
@@ -31,4 +35,7 @@ export class LoginComponent implements OnInit {
   submitForm(login_form: FormGroup): void {
   }
 
+  recoverPassword(): void {
+    this.dialog.open(RecoverPasswordComponent);
+  }
 }
