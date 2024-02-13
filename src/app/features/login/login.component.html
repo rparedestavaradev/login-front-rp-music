@@ -7,19 +7,22 @@
     </div>
     <img class="dimension-800" [src]="src_logo" alt="Logo without background">
     <div class="form-side">
-        <form autocomplete="off">
+        <form [formGroup]="login_form" autocomplete="off">
             <h3>RP music</h3>
             <section class="content-inputs">
                 <app-custom-input [label_description]="'Email'" [class_icon]="'fa-solid fa-circle-user'"
-                [value]="email" [inputType]="'text'" [placeholder]="'Write your Email'" ></app-custom-input>
+                [inputType]="'email'" [placeholder]="'Write your Email'" [form]="login_form"
+                [formControlName]="'email'"></app-custom-input>
                 <div>
                     <app-custom-input [label_description]="'Password'" [class_icon]="'fa-solid fa-eye-slash'"
-                    [value]="password" [inputType]="'password'" [placeholder]="'Write your Password'"
-                    [class_icon_visibility]="'fa-solid fa-eye'" [isPassword]="true"></app-custom-input>
+                    [form]="login_form" [inputType]="'password'" [placeholder]="'Write your Password'"
+                    [class_icon_visibility]="'fa-solid fa-eye'" [isPassword]="true"
+                    [formControlName]="'password'"></app-custom-input>
                     <p class="recover-password">{{forgot_password}} <strong>{{description_recover_password}}</strong></p>
                 </div>
             </section>
-            <app-custom-button  [type]="'button'" [description]="'Log in'" [primary]="true" ></app-custom-button>
+            <app-custom-button  [type]="'button'" [description]="'Log in'" [primary]="true"
+            [disabled]="login_form.invalid" (click)="submitForm(login_form)"></app-custom-button>
             <section class="content-register">
                 <p>{{register_message}}</p>
                 <p class="recover-password"><strong [routerLink]="register_link">{{description_to_register}}</strong></p>

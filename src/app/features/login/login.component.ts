@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleServiceAdapter } from 'src/app/adapters/title-service-adapter';
 
 @Component({
@@ -8,21 +9,26 @@ import { TitleServiceAdapter } from 'src/app/adapters/title-service-adapter';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = "";
   title: string = "Login RP";
-  password: string = "";
   forgot_password: string = 'Forgot password';
   description_recover_password: string = "Recover password"; 
   register_message: string = "If you don’t have an accounte, you can register at";
   description_to_register: string = "Register User";
   src_logo: string = '/assets/logo/logo-rp-music-bg.png';
   register_link: string = "/register";
+  login_form: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  })
 
   constructor(titleService: TitleServiceAdapter) {
     titleService.setTitle(this.title);
   }
 
   ngOnInit(): void {
+  }
+
+  submitForm(login_form: FormGroup): void {
   }
 
 }
