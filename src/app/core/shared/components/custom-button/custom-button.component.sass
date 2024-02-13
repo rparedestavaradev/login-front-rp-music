@@ -1,4 +1,4 @@
-button
+.custom_button
     width: 100%
     min-height: 5%
     font-size: 100%
@@ -7,9 +7,16 @@ button
     padding: 10px
     cursor: pointer
     border: none
+
+.custom_button:disabled
+  background: #red
+  opacity: 0.3
+  color: white
+
 .primary
     background: linear-gradient(to right, #F9638A, #FC9256)
     color: white
+
 .secondary
     background: red
     color: white

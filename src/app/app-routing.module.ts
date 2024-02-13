@@ -10,12 +10,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: "register",
-    loadChildren: () => import('./features/register/register-routing.module').then((m) => m.RegisterRoutingModule)
-  },
-  {
     path:"",
     component: LoginComponent
+  },
+  {
+    path: "register",
+    loadChildren: () => import('./features/register/register.module').then((m) => m.RegisterModule)
   },
   {
     path: "**",

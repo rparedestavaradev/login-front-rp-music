@@ -1,3 +1,4 @@
+$warning_color: #ffbb33
 section
     display: flex
     flex-direction: column
@@ -20,8 +21,11 @@ section
             font-size: 15px
         .custom-input:focus
             outline: none
+        
         svg
             color: #363636
             font-size: 22px
 .password
     cursor: pointer
+.invalid
+    border: 1px solid $warning_color

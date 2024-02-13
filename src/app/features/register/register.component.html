@@ -1,1 +1,47 @@
-<p>register worksddddddddddd!</p>
+<div class="content_register">
+    <form class="register_form" [formGroup]="register_form">
+        <h2>Register</h2>
+        <section class="content_inputs">
+            <section class="styles_commun_col first_column">
+                <app-custom-input [label_description]="'First Name'" [class_icon]="'fa-solid fa-circle-user'"
+                formControlName='firstName' [form]="register_form"
+                [inputType]="'text'" [placeholder]="'Write your First Name'" [color]="'white'"></app-custom-input>
+                <app-custom-input [label_description]="'Last Name'" [class_icon]="'fa-solid fa-circle-user'"
+                [inputType]="'text'" [placeholder]="'Write your Last Name'" [color]="'white'"
+                formControlName='lastName' [form]="register_form"></app-custom-input>
+                <img [src]="src_logo" alt="Logo without background">
+            </section>
+            <section class="styles_commun_col second_column">
+                <app-custom-input [label_description]="'Second Name'" [class_icon]="'fa-solid fa-circle-user'"
+                [inputType]="'text'" [placeholder]="'Write your Second Name'" [color]="'white'"
+                formControlName='secondName' [form]="register_form"></app-custom-input>
+                <app-custom-input [label_description]="'Phone Number'" [class_icon]="'fa-solid fa-phone'"
+                [inputType]="'tel'" [placeholder]="'Write your Email'" [color]="'white'"
+                formControlName='phoneNamber' [form]="register_form"></app-custom-input>
+                <app-custom-input [label_description]="'Email'" [class_icon]="'fa-solid fa-envelope'"
+                [inputType]="'email'" [placeholder]="'Write your Email'" [color]="'white'"
+                formControlName='email' [form]="register_form"></app-custom-input>
+                <app-custom-input [label_description]="'Password'" [class_icon]="'fa-solid fa-eye-slash'"
+                [inputType]="'password'" [placeholder]="'Write your Password'" [color]="'white'"
+                formControlName='password' [form]="register_form" [class_icon_visibility]="'fa-solid fa-eye'" 
+                [isPassword]="true"></app-custom-input>
+                <app-custom-input [label_description]="'Confirm Password'" [class_icon]="'fa-solid fa-eye-slash'"
+                [inputType]="'password'" [placeholder]="'Write again your Password'" [color]="'white'"
+                formControlName='confirmPassword' [form]="register_form" [class_icon_visibility]="'fa-solid fa-eye'"
+                [isPassword]="true"></app-custom-input>
+                <section class="content_validators">
+                    <p [class]="{'warning_color':(password.errors?.['almostAnUppercase'] && dirtyOrTouched)}"> At least a character in Uppercase </p>
+                    <p [class]="{'warning_color':(register_form.hasError('passwordMismatch') && dirtyOrTouched)}"> Passwords match </p>
+                    <p [class]="{'warning_color':(password.errors?.['almostAnNumber'] && dirtyOrTouched)}">At least a number</p>
+                    <p [class]="{'warning_color':(password.errors?.['specialCharacter'] && dirtyOrTouched)}">At least a special Character</p>
+                    <p [class]="{'warning_color':(password.errors?.['minlength'] && dirtyOrTouched)}">At least 8 character</p>
+                </section>
+            </section>
+        </section>
+        <section class="content_buttons">
+            <app-custom-button [type]="'input'" [description]="'Register with Google'" [primary]="true" ></app-custom-button>
+            <app-custom-button [type]="'submit'" [description]="'Register'" [primary]="true"
+            (click)="sendForm()" [disabled]="this.register_form.invalid"></app-custom-button>
+        </section>
+    </form>
+</div>

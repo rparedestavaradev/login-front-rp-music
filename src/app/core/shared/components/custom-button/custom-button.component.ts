@@ -10,6 +10,7 @@ export class CustomButtonComponent implements OnInit {
   @Input() description: string | undefined;
   @Input() type: string | undefined;
   @Input() primary: boolean | undefined;
+  @Input() disabled: boolean = false;
   @Input() secondary: boolean | undefined;
 
   constructor() { }

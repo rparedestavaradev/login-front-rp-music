@@ -1,9 +1,10 @@
-<section>
-    <label id="inputLabel">{{ label_description }}:</label>
-    <div class="content-input">
+<section [formGroup]="form">
+    <label id="inputLabel" [style]="{'color':color}">{{ label_description }}:</label>
+    <div class="content-input" [ngClass]="{'invalid':invalid_&&dirtyOrTouched}">
         <input
             class="custom-input"
             [value]="value"
+            [formControlName]="formControlName"
             [type]="inputType"
             [placeholder]="placeholder"
             autocomplete="current-password"
