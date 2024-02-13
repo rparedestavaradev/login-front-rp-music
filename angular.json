@@ -64,6 +64,24 @@
               ],
               "outputHashing": "all"
             },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "uat": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -80,6 +98,12 @@
           "configurations": {
             "production": {
               "buildTarget": "login-front-rp-music:build:production"
+            },
+            "qa": {
+              "buildTarget": "login-front-rp-music:build:qa"
+            },
+            "uat": {
+              "buildTarget": "login-front-rp-music:build:uat"
             },
             "development": {
               "buildTarget": "login-front-rp-music:build:development"
