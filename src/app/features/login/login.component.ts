@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   description_recover_password: string = "Recover password"; 
   register_message: string = "If you don’t have an accounte, you can register at";
   description_to_register: string = "Register User";
-  src_logo: string = '/assets/logo/logo-rp-music-bg.png';
+  src_logo: string = 'assets/logo/logo-rp-music-bg.png';
   register_link: string = "/register";
   login_form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required]),

@@ -11,7 +11,7 @@ import { NumerPatterValidator, PasswordMatchValidator, SpecialCharacterPattern, 
 export class RegisterComponent implements OnInit {
 
   title: string = "Register RP";
-  src_logo: string = '/assets/logo/logo-rp-music-bg.png';
+  src_logo: string = 'assets/logo/logo-rp-music-bg.png';
   register_form: FormGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
