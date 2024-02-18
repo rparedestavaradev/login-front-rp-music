@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('login-front-rp-music');
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('login-front-rp-music app is running!');
-  // });
 });
