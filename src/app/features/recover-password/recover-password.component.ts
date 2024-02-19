@@ -26,7 +26,7 @@ export class RecoverPasswordComponent {
   get email(): any { return this.recover_form.get('email'); }
 
   sendForm() {
-    console.log(this.recover_form)
+    // console.log(this.recover_form)
   }
 
 }
