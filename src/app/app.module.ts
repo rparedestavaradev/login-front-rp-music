@@ -9,6 +9,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RecoverPasswordModule } from './features/recover-password/recover-password.module';
+import { LoaderModule } from './core/shared/components/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { RecoverPasswordModule } from './features/recover-password/recover-passw
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    
+    LoaderModule
   ],
   bootstrap: [AppComponent]
 })
