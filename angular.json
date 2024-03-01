@@ -95,6 +95,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "login-front-rp-music:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "login-front-rp-music:build:production"
@@ -106,7 +110,8 @@
               "buildTarget": "login-front-rp-music:build:uat"
             },
             "development": {
-              "buildTarget": "login-front-rp-music:build:development"
+              "buildTarget": "login-front-rp-music:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
