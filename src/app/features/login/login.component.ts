@@ -6,6 +6,10 @@ import {
 } from '@angular/material/dialog';
 
 import { RecoverPasswordComponent } from '../recover-password/recover-password.component';
+import { LoginService } from 'src/app/services/login.service';
+import { LoginInterface } from '../register/interfaces/register.model';
+import { LoaderService } from 'src/app/core/shared/services/loader.service';
+import { AlertServiceImplement } from 'src/app/adapters/alert-service.adapter';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +29,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(titleService: TitleServiceAdapter, private dialog: MatDialog) {
+  constructor(titleService: TitleServiceAdapter, private dialog: MatDialog, private loginService: LoginService, 
+    private loderService: LoaderService, private alertService: AlertServiceImplement) {
     titleService.setTitle(this.title);
   }
 
@@ -33,9 +38,26 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(login_form: FormGroup): void {
+    const value_form: LoginInterface = this.getDataFromForm(login_form);
+    this.loderService.showValue = true;
+    this.loginService.login(value_form).subscribe({
+      next: (value) => {
+        this.alertService.showToast(value.massage);
+      },
+      error: (error) => {
+        this.loderService.showValue = false;
+        this.alertService.showToast(error.error.message);
+      }, 
+      complete: () => this.loderService.showValue = false
+      });
   }
 
   recoverPassword(): void {
     this.dialog.open(RecoverPasswordComponent);
+  }
+
+  getDataFromForm(form: FormGroup): LoginInterface {
+    const data_form: LoginInterface = form.value as LoginInterface;
+    return data_form;
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleServiceAdapter } from 'src/app/adapters/title-service-adapter';
 import { NumerPatterValidator, PasswordMatchValidator, SpecialCharacterPattern, UnUppercase } from 'src/app/core/shared/validators/form.validators';
+import { RegisterInterface } from './interfaces/register.model';
+import { LoginServiceAdapter } from 'src/app/adapters/login-service.adapter';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
   get password(): any { return this.register_form.get('password'); }
   get dirtyOrTouched(): any { return this.register_form?.dirty || this.register_form?.touched; }
 
-  constructor(titleService: TitleServiceAdapter) { 
+  constructor(titleService: TitleServiceAdapter, private registerFormService: LoginServiceAdapter) { 
     titleService.setTitle(this.title);
   }
 
@@ -33,7 +35,13 @@ export class RegisterComponent implements OnInit {
   }
   
   sendForm(): void {
-    this.register_form.invalid
+    const object_form: RegisterInterface = this.getDataFromForm(this.register_form);
+    this.registerFormService.register(object_form)
+  }
+
+  getDataFromForm(form: FormGroup): RegisterInterface {
+    const data_form: RegisterInterface = this.register_form.value as RegisterInterface;
+    return data_form;
   }
 
 }

@@ -16,7 +16,6 @@ export class PageNotFoundComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginService.login().subscribe(res => console.log(res));
   }
 
 }

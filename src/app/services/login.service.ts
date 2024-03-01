@@ -3,6 +3,7 @@ import { LoginServiceAdapter } from '../adapters/login-service.adapter';
 import { Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
+import { LoginInterface } from '../features/register/interfaces/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,12 @@ export class LoginService extends LoginServiceAdapter {
     super();
   }
 
-  login(): Observable<any> {
-    const url: string = environment.apiURL + "pin";
-    return this.httpClientService.get(url);
+  login(value_form: LoginInterface): Observable<any> {
+    const url: string = environment.apiURL + "login";
+    return this.httpClientService.post(url, value_form);
   }
   
   register(): Observable<any> {
-    console.log("Register 1")
     throw new Error('Method not implemented.');
   }
 }
